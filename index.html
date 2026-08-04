@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="RR Builder">
+<meta name="theme-color" content="#1B1D22">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>Roster Regret — Post Builder</title>
+<style>
+  :root{
+    --c:#1B1D22; --bone:#F2EEE6; --gold:#C8A24A; --rust:#D4553A; --tear:#7FA8C4;
+    --muted:#8A8578;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--c);color:var(--bone);
+    font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+  .wrap{max-width:1120px;margin:0 auto;padding:18px 16px 64px}
+  h1{font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+    margin:0 0 2px;font-weight:700}
+  .sub{color:var(--muted);font-size:12.5px;margin:0 0 18px}
+  .tabs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+  .tab{background:#24272E;border:1px solid #34383F;color:var(--bone);border-radius:7px;
+    padding:9px 13px;font-size:13px;cursor:pointer;font-weight:600;letter-spacing:.02em}
+  .tab.on{background:var(--gold);border-color:var(--gold);color:var(--c)}
+  .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+  @media(max-width:820px){.cols{grid-template-columns:1fr}}
+  .panel{background:#20232A;border:1px solid #313640;border-radius:11px;padding:15px}
+  label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);margin:12px 0 5px;font-weight:700}
+  label:first-child{margin-top:0}
+  input,textarea,select{width:100%;background:#171A1F;border:1px solid #383D47;color:var(--bone);
+    border-radius:6px;padding:9px 10px;font:inherit;font-size:14px}
+  textarea{resize:vertical;min-height:66px}
+  .row{display:grid;grid-template-columns:1fr 92px;gap:9px}
+  .row3{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .info{margin:14px 0 0;padding:10px 12px;background:#1A1D23;border-left:3px solid var(--gold);
+    border-radius:0 6px 6px 0;font-size:12.5px;color:#B9B4A8}
+  .info b{color:var(--bone)}
+  .warn{border-left-color:var(--rust)}
+  .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+  button.go{background:var(--gold);color:var(--c);border:0;border-radius:7px;padding:12px 18px;
+    font:inherit;font-weight:800;font-size:14px;cursor:pointer;letter-spacing:.04em}
+  button.alt{background:#2B2F37;color:var(--bone);border:1px solid #3C424C}
+  #stage{background:#15171B;border:1px solid #313640;border-radius:11px;padding:13px;
+    display:flex;align-items:center;justify-content:center;min-height:200px}
+  #stage svg,#out img{width:100%;height:auto;display:block;border-radius:4px}
+  #out{margin-top:13px}
+  #out img{border:1px solid #313640}
+  .hint{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.5}
+  .sz{display:flex;gap:7px;margin-bottom:12px;flex-wrap:wrap}
+  .sz button{background:#24272E;border:1px solid #34383F;color:var(--bone);border-radius:6px;
+    padding:7px 11px;font:inherit;font-size:12.5px;cursor:pointer}
+  .sz button.on{background:#3A3F49;border-color:var(--gold);color:var(--gold);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Roster Regret — Post Builder</h1>
+  <p class="sub">Typographic formats in the locked palette. Nothing here is AI-generated, so nothing here needs a disclosure.</p>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div class="cols">
+    <div class="panel">
+      <div class="sz" id="sizes"></div>
+      <div id="fields"></div>
+      <div class="info" id="policy"></div>
+      <div class="actions">
+        <button class="go" id="render">Render PNG</button>
+        <button class="go alt" id="reset">Clear</button>
+      </div>
+      <p class="hint" id="savehint"></p>
+    </div>
+
+    <div>
+      <div id="stage"></div>
+      <div id="out"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   Roster Regret — Post Builder
+   Palette is locked by construction. Do not add colours.
+   Charcoal #1B1D22 · Bone #F2EEE6 · Gold #C8A24A · Rust #D4553A · Tear #7FA8C4
+   ============================================================ */
+
+const C='#1B1D22', BONE='#F2EEE6', GOLD='#C8A24A', RUST='#D4553A';
+const MUTED='#6E6A60';
+const FONT='Helvetica, Arial, sans-serif';
+const HANDLE='@rosterregret';
+
+/* ---------- text measuring + wrapping (no foreignObject: canvas-safe) ---------- */
+const _m = document.createElement('canvas').getContext('2d');
+function textWidth(t, size, weight){ _m.font = (weight||'normal')+' '+size+'px '+FONT; return _m.measureText(t).width; }
+function wrap(text, size, weight, maxW){
+  const words = String(text||'').split(/\s+/).filter(Boolean);
+  const lines=[]; let cur='';
+  for(const w of words){
+    const t = cur ? cur+' '+w : w;
+    if(textWidth(t,size,weight) <= maxW || !cur) cur=t;
+    else { lines.push(cur); cur=w; }
+  }
+  if(cur) lines.push(cur);
+  return lines.length?lines:[''];
+}
+const esc = s => String(s==null?'':s)
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function T(x,y,txt,{size=40,weight='normal',fill=C,anchor='start',spacing=0,opacity=1}={}){
+  return `<text x="${x}" y="${y}" font-family="${FONT}" font-size="${size}" font-weight="${weight}"
+    fill="${fill}" text-anchor="${anchor}" letter-spacing="${spacing}" opacity="${opacity}">${esc(txt)}</text>`;
+}
+function block(x,y,txt,{size=40,weight='normal',fill=C,anchor='start',maxW=900,lh=1.22,spacing=0}={}){
+  const lines = wrap(txt,size,weight,maxW);
+  return { h: lines.length*size*lh,
+    svg: lines.map((l,i)=>T(x, y+i*size*lh, l, {size,weight,fill,anchor,spacing})).join('') };
+}
+function footer(W,H){
+  return T(W/2, H-46, HANDLE, {size:26, weight:'bold', fill:MUTED, anchor:'middle', spacing:3});
+}
+
+/* ---------- formats ---------- */
+const SIZES = [
+  {id:'p', label:'Portrait 4:5', w:1080, h:1350},
+  {id:'s', label:'Square 1:1',  w:1080, h:1080},
+];
+
+const FORMATS = {
+  F2:{
+    name:'F2 · Stat Card of Shame',
+    policy:{rights:'ORIGINAL', disclosure:'None — typographic', sponsor:false,
+      note:'The stat must be backward-looking and useless. A forward-looking number makes this an analysis post.'},
+    fields:[
+      {k:'name', l:'Player name', t:'text', v:'', ph:'JONATHAN TAYLOR'},
+      {k:'stat', l:'The stat', t:'text', v:'', ph:'2 carries, −3 yards'},
+      {k:'foot', l:'Footnote', t:'text', v:'', ph:'started in 41% of leagues'},
+    ],
+    draw(d,W,H){
+      const pad=90, maxW=W-pad*2;
+      let s = `<rect width="${W}" height="${H}" fill="${BONE}"/>`;
+      s += T(pad, 150, 'STAT CARD OF SHAME', {size:28, weight:'bold', fill:RUST, spacing:6});
+      s += `<path d="M${pad} 180 L${W-pad} 180" stroke="${C}" stroke-width="3"/>`;
+      const nm = block(pad, H*0.36, d.name||'', {size:96, weight:'bold', maxW});
+      s += nm.svg;
+      const st = block(pad, H*0.36 + nm.h + 66, d.stat||'', {size:62, maxW});
+      s += st.svg;
+      const ft = block(pad, H*0.36 + nm.h + st.h + 132, d.foot||'', {size:34, fill:MUTED, maxW});
+      s += ft.svg;
+      s += footer(W,H);
+      return s;
+    }
+  },
+
+  F3:{
+    name:'F3 · Bench Ledger',
+    policy:{rights:'ORIGINAL', disclosure:'None — typographic', sponsor:false,
+      note:'Pure past tense. The margin needs no comment — adding one weakens it.'},
+    fields:[
+      {k:'sn', l:'Started — name', t:'text', v:'', ph:'ZAY FLOWERS'},
+      {k:'sp', l:'Started — points', t:'text', v:'', ph:'6.2'},
+      {k:'bn', l:'Benched — name', t:'text', v:'', ph:'ROME ODUNZE'},
+      {k:'bp', l:'Benched — points', t:'text', v:'', ph:'31.4'},
+    ],
+    draw(d,W,H){
+      const pad=88;
+      const sp=parseFloat(d.sp), bp=parseFloat(d.bp);
+      const margin = (isFinite(sp)&&isFinite(bp)) ? (bp-sp).toFixed(1) : '';
+      let s = `<rect width="${W}" height="${H}" fill="${BONE}"/>`;
+      s += T(pad, 148, 'THE BENCH LEDGER', {size:28, weight:'bold', fill:RUST, spacing:6});
+      s += `<path d="M${pad} 178 L${W-pad} 178" stroke="${C}" stroke-width="3"/>`;
+
+      const rows = [
+        {lab:'STARTED', nm:d.sn, pt:d.sp, y:H*0.30},
+        {lab:'BENCHED', nm:d.bn, pt:d.bp, y:H*0.52},
+      ];
+      for(const r of rows){
+        s += T(pad, r.y, r.lab, {size:30, weight:'bold', fill:MUTED, spacing:5});
+        const n = block(pad, r.y+78, r.nm||'', {size:62, weight:'bold', maxW:W-pad*2-260});
+        s += n.svg;
+        s += T(W-pad, r.y+82, r.pt||'', {size:96, weight:'bold', anchor:'end'});
+      }
+      s += `<path d="M${pad} ${H*0.70} L${W-pad} ${H*0.70}" stroke="${C}" stroke-width="3"/>`;
+      s += T(pad, H*0.70+72, 'MARGIN', {size:30, weight:'bold', fill:MUTED, spacing:5});
+      s += T(W-pad, H*0.70+92, margin, {size:112, weight:'bold', anchor:'end', fill:RUST});
+      s += footer(W,H);
+      return s;
+    }
+  },
+
+  F8:{
+    name:'F8 · Archetype Card',
+    policy:{rights:'ORIGINAL', disclosure:'None — bank image + type', sponsor:true,
+      note:'Run it as a numbered series, not as one-offs. Portrait comes from your camera roll — pick a reaction-bank PNG.'},
+    fields:[
+      {k:'img', l:'Portrait — pick a bank PNG', t:'file'},
+      {k:'no',  l:'Card number', t:'text', v:'', ph:'No. 004'},
+      {k:'title', l:'Archetype', t:'text', v:'', ph:'THE COMMISSIONER WHO VETOES EVERY TRADE'},
+      {k:'t1l', l:'Trait 1', t:'pair', v:'', ph:'Fairness', ph2:'9'},
+      {k:'t2l', l:'Trait 2', t:'pair', v:'', ph:'Self-awareness', ph2:'1'},
+      {k:'t3l', l:'Trait 3', t:'pair', v:'', ph:'Trades accepted', ph2:'0'},
+    ],
+    draw(d,W,H){
+      const pad=70, ix=pad+34;
+      let s = `<rect width="${W}" height="${H}" fill="${C}"/>`;
+      s += `<rect x="${pad}" y="${pad}" width="${W-pad*2}" height="${H-pad*2}" fill="none"
+              stroke="${GOLD}" stroke-width="6"/>`;
+      s += T(ix, pad+82, (d.no||'').toUpperCase(), {size:28, weight:'bold', fill:GOLD, spacing:5});
+
+      const artY = pad+120, artH = H*0.36;
+      s += `<rect x="${ix}" y="${artY}" width="${W-ix*2}" height="${artH}" fill="${BONE}"/>`;
+      if(d.imgData){
+        s += `<image x="${ix}" y="${artY}" width="${W-ix*2}" height="${artH}"
+                href="${d.imgData}" preserveAspectRatio="xMidYMid meet"/>`;
+      }
+
+      const ti = block(ix, artY+artH+92, (d.title||'').toUpperCase(),
+        {size:58, weight:'bold', fill:BONE, maxW:W-ix*2, lh:1.16});
+      s += ti.svg;
+
+      let y = artY+artH+92+ti.h+54;
+      const traits=[[d.t1l,d.t1v],[d.t2l,d.t2v],[d.t3l,d.t3v]];
+      for(const [l,v] of traits){
+        if(!l && !v) continue;
+        s += `<path d="M${ix} ${y-34} L${W-ix} ${y-34}" stroke="#3A3F49" stroke-width="2"/>`;
+        s += T(ix, y+14, l||'', {size:34, fill:'#B9B4A8'});
+        s += T(W-ix, y+14, v||'', {size:38, weight:'bold', anchor:'end', fill:GOLD});
+        y += 74;
+      }
+      s += T(W/2, H-pad-34, HANDLE, {size:24, weight:'bold', fill:MUTED, anchor:'middle', spacing:3});
+      return s;
+    }
+  },
+
+  F9:{
+    name:'F9 · Pain Tier List',
+    policy:{rights:'ORIGINAL', disclosure:'None — typographic', sponsor:true,
+      note:'Ranks KINDS OF SUFFERING, never players. A player name in a tier turns this into a rankings post. No exceptions.'},
+    fields:[
+      {k:'ttl', l:'Title', t:'text', v:'', ph:'WAYS TO LOSE, RANKED'},
+      {k:'S', l:'S tier', t:'text', v:'', ph:'losing by 0.4'},
+      {k:'A', l:'A tier', t:'text', v:'', ph:"their QB rushing TD with 0:08 left"},
+      {k:'B', l:'B tier', t:'text', v:'', ph:'the guy you dropped goes off'},
+      {k:'C', l:'C tier', t:'text', v:'', ph:'losing by 40'},
+      {k:'F', l:'F tier', t:'text', v:'', ph:'forgetting to set your lineup'},
+    ],
+    draw(d,W,H){
+      const pad=76;
+      let s = `<rect width="${W}" height="${H}" fill="${BONE}"/>`;
+      const tt = block(pad, 132, (d.ttl||'').toUpperCase(), {size:52, weight:'bold', maxW:W-pad*2});
+      s += tt.svg;
+      let y = 132 + tt.h + 46;
+      const tiers=[['S',d.S],['A',d.A],['B',d.B],['C',d.C],['F',d.F]];
+      const boxW=124, gap=22;
+      const avail = (H - y - 120);
+      const rowH = Math.min(avail/5, 168);
+      for(const [k,v] of tiers){
+        const fill = (k==='S') ? RUST : (k==='A' ? GOLD : C);
+        const tx   = (k==='A') ? C : BONE;   // gold needs dark type, not bone
+        s += `<rect x="${pad}" y="${y}" width="${boxW}" height="${rowH-gap}" fill="${fill}" rx="8"/>`;
+        s += T(pad+boxW/2, y+(rowH-gap)/2+18, k, {size:56, weight:'bold', fill:tx, anchor:'middle'});
+        const b = block(pad+boxW+30, y+(rowH-gap)/2+10, v||'',
+          {size:34, maxW:W-pad*2-boxW-30, lh:1.2});
+        s += b.svg;
+        y += rowH;
+      }
+      s += footer(W,H);
+      return s;
+    }
+  },
+
+  F11:{
+    name:'F11 · Honest Chart',
+    policy:{rights:'ORIGINAL', disclosure:'None — typographic', sponsor:true,
+      note:'Plots a FEELING, not data. A chart is the most authoritative-looking object here — the moment a real number appears on an axis it is an analysis post.'},
+    fields:[
+      {k:'ttl', l:'Title', t:'text', v:'', ph:'MY SUNDAY, CHARTED'},
+      {k:'b1l', l:'Bar 1', t:'bar', v:'', ph:'Time spent staring at my lineup', ph2:'95'},
+      {k:'b2l', l:'Bar 2', t:'bar', v:'', ph:'Ability to change the outcome', ph2:'4'},
+      {k:'b3l', l:'Bar 3', t:'bar', v:'', ph:'', ph2:''},
+      {k:'b4l', l:'Bar 4', t:'bar', v:'', ph:'', ph2:''},
+    ],
+    draw(d,W,H){
+      const pad=80;
+      let s = `<rect width="${W}" height="${H}" fill="${BONE}"/>`;
+      const tt = block(pad, 130, (d.ttl||'').toUpperCase(), {size:48, weight:'bold', maxW:W-pad*2});
+      s += tt.svg;
+      const bars=[[d.b1l,d.b1v],[d.b2l,d.b2v],[d.b3l,d.b3v],[d.b4l,d.b4v]]
+        .filter(b=>b[0]||b[1]);
+      let y = 130 + tt.h + 66;
+      const avail = H - y - 130;
+      const slot = bars.length ? Math.min(avail/bars.length, 210) : 0;
+      const maxBar = W - pad*2;
+      bars.forEach((b,i)=>{
+        const pct = Math.max(0, Math.min(100, parseFloat(b[1])||0));
+        const lab = block(pad, y, b[0]||'', {size:32, maxW:maxBar, lh:1.18});
+        s += lab.svg;
+        const by = y + lab.h + 14;
+        s += `<rect x="${pad}" y="${by}" width="${maxBar}" height="46" fill="#E0DACE" rx="6"/>`;
+        s += `<rect x="${pad}" y="${by}" width="${maxBar*pct/100}" height="46"
+                fill="${i===0?C:RUST}" rx="6"/>`;
+        y += slot;
+      });
+      s += T(pad, H-104, 'no axis. no numbers. no help.', {size:26, fill:MUTED});
+      s += footer(W,H);
+      return s;
+    }
+  },
+
+  F12:{
+    name:'F12 · Wrong Again',
+    policy:{rights:'ORIGINAL', disclosure:'None — typographic', sponsor:false,
+      note:'Max ~1×/week. Needs an archive to be wrong about. Quote OUR OWN take, never someone else’s.'},
+    fields:[
+      {k:'when', l:'When we said it', t:'text', v:'', ph:'WEEK 2 · 14 SEPTEMBER'},
+      {k:'take', l:'The take (ours)', t:'textarea', v:'', ph:'this is the week he finally goes off'},
+    ],
+    draw(d,W,H){
+      const pad=84;
+      let s = `<rect width="${W}" height="${H}" fill="${BONE}"/>`;
+      s += T(pad, 140, 'WE SAID', {size:30, weight:'bold', fill:MUTED, spacing:6});
+      s += T(pad, 186, (d.when||'').toUpperCase(), {size:30, weight:'bold', fill:C, spacing:3});
+
+      const boxY = H*0.28, boxH = H*0.40;
+      s += `<rect x="${pad}" y="${boxY}" width="${W-pad*2}" height="${boxH}"
+              fill="none" stroke="${C}" stroke-width="4"/>`;
+      const q = block(pad+44, boxY+112, '“'+(d.take||'')+'”',
+        {size:56, maxW:W-pad*2-88, lh:1.26});
+      s += q.svg;
+
+      const stampY = Math.max(boxY+boxH*0.66, boxY+112+q.h+96);
+      s += `<g transform="rotate(-11 ${W/2} ${stampY})">
+        <rect x="${W*0.13}" y="${stampY-88}" width="${W*0.74}" height="150"
+          fill="none" stroke="${RUST}" stroke-width="9" rx="10"/>
+        ${T(W/2, stampY+22, 'WRONG', {size:118, weight:'bold', fill:RUST, anchor:'middle', spacing:14})}
+      </g>`;
+      s += footer(W,H);
+      return s;
+    }
+  },
+};
+
+/* ---------- state ---------- */
+let cur='F2', size=SIZES[0], data={};
+
+/* ---------- UI ---------- */
+const $ = s=>document.querySelector(s);
+
+function buildTabs(){
+  $('#tabs').innerHTML = Object.keys(FORMATS).map(k=>
+    `<button class="tab${k===cur?' on':''}" data-k="${k}">${FORMATS[k].name}</button>`).join('');
+  $('#tabs').querySelectorAll('.tab').forEach(b=>b.onclick=()=>{cur=b.dataset.k;data={};buildAll();});
+}
+function buildSizes(){
+  $('#sizes').innerHTML = SIZES.map(s=>
+    `<button class="${s.id===size.id?'on':''}" data-i="${s.id}">${s.label}</button>`).join('');
+  $('#sizes').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    size = SIZES.find(x=>x.id===b.dataset.i); buildSizes(); preview();});
+}
+function buildFields(){
+  const f = FORMATS[cur].fields;
+  $('#fields').innerHTML = f.map(x=>{
+    if(x.t==='file')
+      return `<label>${x.l}</label><input type="file" accept="image/*" data-k="${x.k}">`;
+    if(x.t==='textarea')
+      return `<label>${x.l}</label><textarea data-k="${x.k}" placeholder="${x.ph||''}"></textarea>`;
+    if(x.t==='pair'){
+      const base=x.k.slice(0,2);
+      return `<label>${x.l}</label><div class="row">
+        <input data-k="${base}l" placeholder="${x.ph||''}">
+        <input data-k="${base}v" placeholder="${x.ph2||''}"></div>`;
+    }
+    if(x.t==='bar'){
+      const base=x.k.slice(0,2);
+      return `<label>${x.l} — text, then 0–100</label><div class="row">
+        <input data-k="${base}l" placeholder="${x.ph||''}">
+        <input data-k="${base}v" type="number" min="0" max="100" placeholder="${x.ph2||''}"></div>`;
+    }
+    return `<label>${x.l}</label><input data-k="${x.k}" placeholder="${x.ph||''}">`;
+  }).join('');
+
+  $('#fields').querySelectorAll('input,textarea').forEach(el=>{
+    if(el.type==='file'){
+      el.onchange = e=>{
+        const file=e.target.files[0]; if(!file) return;
+        const r=new FileReader();
+        r.onload=()=>{ data.imgData=r.result; preview(); };
+        r.readAsDataURL(file);
+      };
+    } else {
+      el.oninput = ()=>{ data[el.dataset.k]=el.value; preview(); };
+    }
+  });
+}
+function buildPolicy(){
+  const p = FORMATS[cur].policy;
+  $('#policy').className = 'info' + (p.sponsor ? '' : ' warn');
+  $('#policy').innerHTML =
+    `<b>Rights:</b> ${p.rights} &nbsp;·&nbsp; <b>AI disclosure:</b> ${p.disclosure} &nbsp;·&nbsp; ` +
+    `<b>Sponsor-safe:</b> ${p.sponsor ? 'yes' : 'NO — contains player names'}<br>${p.note}`;
+}
+function buildAll(){ buildTabs(); buildSizes(); buildFields(); buildPolicy(); preview(); $('#out').innerHTML=''; }
+
+function svgString(){
+  const {w,h}=size;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`
+       + FORMATS[cur].draw(data,w,h) + `</svg>`;
+}
+function preview(){ $('#stage').innerHTML = svgString(); }
+
+/* ---------- export ---------- */
+function render(){
+  const {w,h}=size, scale=1;
+  const svg = svgString();
+  const blob = new Blob([svg],{type:'image/svg+xml;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const img = new Image();
+  img.onload = ()=>{
+    const c=document.createElement('canvas'); c.width=w*scale; c.height=h*scale;
+    const g=c.getContext('2d'); g.drawImage(img,0,0,c.width,c.height);
+    URL.revokeObjectURL(url);
+    c.toBlob(b=>{
+      const u=URL.createObjectURL(b);
+      const stamp = cur+'-'+size.id;
+      $('#out').innerHTML =
+        `<img src="${u}" alt="rendered post">
+         <p class="hint"><a href="${u}" download="rosterregret-${stamp}.png"
+            style="color:${GOLD};font-weight:700">Download PNG</a>
+            &nbsp;·&nbsp; on a phone, press and hold the image above to save it.</p>`;
+    },'image/png');
+  };
+  img.onerror = ()=>{ $('#out').innerHTML = `<p class="hint" style="color:${RUST}">Render failed.</p>`; };
+  img.src = url;
+}
+
+$('#render').onclick = render;
+$('#reset').onclick = ()=>{ data={}; buildFields(); preview(); $('#out').innerHTML=''; };
+$('#savehint').textContent =
+  'Renders at full size. Desktop: Download PNG. Phone: press and hold the rendered image to save to your camera roll.';
+
+buildAll();
+</script>
+</body>
+</html>
