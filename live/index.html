@@ -8,9 +8,7 @@
 <meta name="apple-mobile-web-app-title" content="RR Live">
 <meta name="theme-color" content="#1B1D22">
 <meta name="robots" content="noindex,nofollow">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta name="rr-build" content="20260806-1848">
+<meta name="rr-build" content="20260806-1921">
 <title>Roster Regret — live queue</title>
 <style>
   *{box-sizing:border-box}
@@ -19,12 +17,14 @@
     -webkit-text-size-adjust:100%}
   .wrap{max-width:620px;margin:0 auto;padding:16px 14px 72px}
   h1{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#C8A24A;margin:0 0 3px}
-  .sub{color:#8A8578;font-size:12.5px;margin:0 0 22px}
+  .sub{color:#8A8578;font-size:12.5px;margin:0 0 6px}
+  .fresh{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 20px}
+  .fresh.ok{color:#5E6B57}
+  .fresh.stale{color:#D4553A}
   .batch{margin:0 0 34px;border-top:1px solid #2C3037;padding-top:16px}
   .bh .t{font-size:11px;letter-spacing:.14em;color:#8A8578;font-weight:700}
   .bh h2{font-size:19px;line-height:1.3;margin:5px 0 16px;font-weight:600}
-  .opt{background:#1E2128;border:1px solid #2F343C;border-radius:12px;
-    padding:12px;margin:0 0 16px}
+  .opt{background:#1E2128;border:1px solid #2F343C;border-radius:12px;padding:12px;margin:0 0 16px}
   .hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
   .ltr{background:#C8A24A;color:#1B1D22;font-weight:800;font-size:15px;
     width:28px;height:28px;border-radius:7px;display:grid;place-items:center}
@@ -40,23 +40,53 @@
   .btn.done{background:#D4553A;border-color:#D4553A;color:#F2EEE6}
   .reply{font-size:12.5px;color:#8A8578;margin:2px 2px 0}
   .reply b{color:#F2EEE6}
-  .fresh{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 18px}
-  .fresh.ok{color:#5E6B57}
-  .fresh.stale{color:#D4553A}
-  .empty{color:#8A8578;font-size:14px;padding:30px 0;border-top:1px solid #2C3037}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Roster Regret — live queue</h1>
-  <p class="sub">DRILL 1 — HOF Game, Cardinals v Panthers · cleared 6 Aug 2026, 18:48 MT
-     · 0 batches</p>
+  <p class="sub">DRILL 1 — HOF Game, Cardinals v Panthers · updated 6 Aug 2026, 19:21 MT · 1 batch</p>
   <p id="freshness" class="fresh">checking…</p>
-
-  <div class="empty">
-    Queue is empty. Fire an observation in the thread and the first batch lands here.
-    First batch of the night will be <b>HOF.1</b>.
-  </div>
+  <section class="batch">
+    <header class="bh">
+      <span class="t">19:21 MT · HOF.1</span>
+      <h2>bryce young on the bench, just like how he will be starting week 3 of the regular season</h2>
+    </header>
+    <article class="opt">
+      <div class="hd"><span class="ltr">A</span><span class="tag">F1 · 06 smug</span></div>
+      <img src="HOF1-A.png" alt="option A" loading="lazy">
+      <p class="cap" id="cap-HOF_1-A">Guess Bryce Young is just getting his bench reps in early this year</p>
+      <p class="note">mascot IN · caption baked for Instagram — for X, post the image and type the line · NOT sponsor-safe (named)</p>
+      <div class="btns">
+        <a class="btn primary" href="https://x.com/intent/post?text=Guess%20Bryce%20Young%20is%20just%20getting%20his%20bench%20reps%20in%20early%20this%20year" target="_blank" rel="noopener">Post on X</a>
+        <button class="btn" onclick="copyCap('cap-HOF_1-A',this)">Copy caption</button>
+        <a class="btn" href="HOF1-A.png" download>Save image</a>
+      </div>
+    </article>
+    <article class="opt">
+      <div class="hd"><span class="ltr">B</span><span class="tag">F7 · 09 resignation</span></div>
+      <img src="HOF1-B.png" alt="option B" loading="lazy">
+      <p class="cap" id="cap-HOF_1-B">Nothing like a quarterback battle that ended before anyone kept score</p>
+      <p class="note">mascot IN · square 1:1 · the ad is about the job, not the man (D-006) · NOT sponsor-safe (named)</p>
+      <div class="btns">
+        <a class="btn primary" href="https://x.com/intent/post?text=Nothing%20like%20a%20quarterback%20battle%20that%20ended%20before%20anyone%20kept%20score" target="_blank" rel="noopener">Post on X</a>
+        <button class="btn" onclick="copyCap('cap-HOF_1-B',this)">Copy caption</button>
+        <a class="btn" href="HOF1-B.png" download>Save image</a>
+      </div>
+    </article>
+    <article class="opt">
+      <div class="hd"><span class="ltr">C</span><span class="tag">F9</span></div>
+      <img src="HOF1-C.png" alt="option C" loading="lazy">
+      <p class="cap" id="cap-HOF_1-C">I have developed strong opinions about a game that does not count</p>
+      <p class="note">mascot OUT by design · no names in any tier (D-015) · sponsor-safe</p>
+      <div class="btns">
+        <a class="btn primary" href="https://x.com/intent/post?text=I%20have%20developed%20strong%20opinions%20about%20a%20game%20that%20does%20not%20count" target="_blank" rel="noopener">Post on X</a>
+        <button class="btn" onclick="copyCap('cap-HOF_1-C',this)">Copy caption</button>
+        <a class="btn" href="HOF1-C.png" download>Save image</a>
+      </div>
+    </article>
+    <p class="reply">Reply <b>HOF.1 A</b> / <b>B</b> / <b>C</b> / <b>kill</b> — or just <b>A</b> for the most recent batch.</p>
+  </section>
 </div>
 <script>
 function copyCap(id, btn){
@@ -66,49 +96,28 @@ function copyCap(id, btn){
     setTimeout(function(){ btn.textContent = o; btn.classList.remove('done'); }, 1400);
   });
 }
-</script>
-
-<script>
-// --- self-heal against the iOS home-screen web-clip cache -------------------
-// The standalone web app has its own cache container and no way to force a
-// refresh by hand. So the page checks a tiny uncached file and reloads itself
-// when the published build no longer matches the one it is running.
 (function(){
   var RUNNING = document.querySelector('meta[name="rr-build"]').content;
-  var badge   = document.getElementById('freshness');
+  var badge = document.getElementById('freshness');
   var failures = 0;
-
   function check(){
     fetch('version.txt?t=' + Date.now(), {cache:'no-store'})
       .then(function(r){ return r.ok ? r.text() : Promise.reject(r.status); })
       .then(function(txt){
-        var latest = txt.trim();
-        failures = 0;
+        var latest = txt.trim(); failures = 0;
         if (latest && latest !== RUNNING) {
-          badge.textContent = 'new batch — reloading';
-          badge.className = 'fresh stale';
+          badge.textContent = 'new batch — reloading'; badge.className = 'fresh stale';
           setTimeout(function(){ location.reload(); }, 300);
-        } else {
-          badge.textContent = 'up to date';
-          badge.className = 'fresh ok';
-        }
+        } else { badge.textContent = 'up to date'; badge.className = 'fresh ok'; }
       })
       .catch(function(){
         failures++;
-        // Only shout after two consecutive misses, so one dropped request on a
-        // phone radio does not read as a dead publish chain.
-        if (failures >= 2) {
-          badge.textContent = 'cannot reach page source — check the chain';
-          badge.className = 'fresh stale';
-        }
+        if (failures >= 2) { badge.textContent = 'cannot reach page source — check the chain';
+          badge.className = 'fresh stale'; }
       });
   }
-
-  check();
-  setInterval(check, 30000);
-  document.addEventListener('visibilitychange', function(){
-    if (!document.hidden) check();
-  });
+  check(); setInterval(check, 30000);
+  document.addEventListener('visibilitychange', function(){ if(!document.hidden) check(); });
 })();
 </script>
 </body>
