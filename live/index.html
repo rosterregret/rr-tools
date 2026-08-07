@@ -10,6 +10,7 @@
 <meta name="robots" content="noindex,nofollow">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
+<meta name="rr-build" content="20260806-1848">
 <title>Roster Regret — live queue</title>
 <style>
   *{box-sizing:border-box}
@@ -39,14 +40,18 @@
   .btn.done{background:#D4553A;border-color:#D4553A;color:#F2EEE6}
   .reply{font-size:12.5px;color:#8A8578;margin:2px 2px 0}
   .reply b{color:#F2EEE6}
+  .fresh{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .fresh.ok{color:#5E6B57}
+  .fresh.stale{color:#D4553A}
   .empty{color:#8A8578;font-size:14px;padding:30px 0;border-top:1px solid #2C3037}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Roster Regret — live queue</h1>
-  <p class="sub">DRILL 1 — HOF Game, Cardinals v Panthers · cleared 6 Aug 2026, 18:44 MT
+  <p class="sub">DRILL 1 — HOF Game, Cardinals v Panthers · cleared 6 Aug 2026, 18:48 MT
      · 0 batches</p>
+  <p id="freshness" class="fresh">checking…</p>
 
   <div class="empty">
     Queue is empty. Fire an observation in the thread and the first batch lands here.
@@ -61,6 +66,50 @@ function copyCap(id, btn){
     setTimeout(function(){ btn.textContent = o; btn.classList.remove('done'); }, 1400);
   });
 }
+</script>
+
+<script>
+// --- self-heal against the iOS home-screen web-clip cache -------------------
+// The standalone web app has its own cache container and no way to force a
+// refresh by hand. So the page checks a tiny uncached file and reloads itself
+// when the published build no longer matches the one it is running.
+(function(){
+  var RUNNING = document.querySelector('meta[name="rr-build"]').content;
+  var badge   = document.getElementById('freshness');
+  var failures = 0;
+
+  function check(){
+    fetch('version.txt?t=' + Date.now(), {cache:'no-store'})
+      .then(function(r){ return r.ok ? r.text() : Promise.reject(r.status); })
+      .then(function(txt){
+        var latest = txt.trim();
+        failures = 0;
+        if (latest && latest !== RUNNING) {
+          badge.textContent = 'new batch — reloading';
+          badge.className = 'fresh stale';
+          setTimeout(function(){ location.reload(); }, 300);
+        } else {
+          badge.textContent = 'up to date';
+          badge.className = 'fresh ok';
+        }
+      })
+      .catch(function(){
+        failures++;
+        // Only shout after two consecutive misses, so one dropped request on a
+        // phone radio does not read as a dead publish chain.
+        if (failures >= 2) {
+          badge.textContent = 'cannot reach page source — check the chain';
+          badge.className = 'fresh stale';
+        }
+      });
+  }
+
+  check();
+  setInterval(check, 30000);
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden) check();
+  });
+})();
 </script>
 </body>
 </html>
